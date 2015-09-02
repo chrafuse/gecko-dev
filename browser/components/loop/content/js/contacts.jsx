@@ -659,7 +659,7 @@ loop.contacts = (function(_, mozL10n) {
               {mozL10n.get("no_search_results_message_heading")}
             </p>
             <p className="panel-text-medium">
-              {mozL10n.get("no_search_results_message_subheading")}
+              {mozL10n.get("contacts_no_search_results")}
             </p>
           </div>
         );
@@ -670,7 +670,7 @@ loop.contacts = (function(_, mozL10n) {
           !this.state.filter) {
         return (
           <div className="contact-list-empty">
-            <p className="panel-text-large">
+            <p className="panel-text-medium">
               {mozL10n.get("no_contacts_message_heading2")}
             </p>
             <p className="panel-text-medium">

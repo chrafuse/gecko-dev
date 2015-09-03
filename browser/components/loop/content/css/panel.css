@@ -220,7 +220,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   background-image: url("../shared/img/icons-14x14.svg#hello-hover");
 }
 
-.tab-view li:first-child:nth-last-child(2) ~ div {
+.tab-view li:first-child:nth-last-child(2) ~ li {
   display: none;
 }
 

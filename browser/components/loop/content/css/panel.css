@@ -110,6 +110,8 @@ body {
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
+  height: 368px;
+  overflow: hidden;
 }
 
 .tab-view {
@@ -229,8 +231,8 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 .tab {
   display: none;
-  /*flex: 1;*/
-  height: 328px;
+  flex: 1;
+  overflow: auto;
 }
 
 .tab.selected {

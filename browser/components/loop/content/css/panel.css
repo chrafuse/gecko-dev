@@ -229,7 +229,8 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 .tab {
   display: none;
-  flex: 1;
+  /*flex: 1;*/
+  height: 328px;
 }
 
 .tab.selected {

@@ -43,6 +43,10 @@ html {
   padding-top: 3%;
 }
 
+.contact-list-empty-container {
+  flex: 1;
+}
+
 .contact-list-empty {
   padding-top: 27%;
 }

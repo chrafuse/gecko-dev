@@ -11,14 +11,14 @@ html {
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  /*overflow: hidden;*/
+  overflow: auto;
 }
 
 .contact-list-container {
   flex: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
 }
 /* Don't show the Gravatar if we're showing a contacts list. */
 /*.contact-list-container ~ .contacts-gravatar-promo {*/

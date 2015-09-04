@@ -32,26 +32,6 @@ body {
   align-items: flex-start;
 }
 
-.panel > .panel-content > .tab-view-container {
-  /*this is broken because main is in the way*/
-  /*flex: 1;*/
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*overflow: hidden;*/
-}
-
-.panel > .panel-content > .tab-view-container > .tab {
-  /*this is broken because main is in the way*/
-  /*flex: 2;*/
-  /*flex-direction: column;*/
-  /*overflow: hidden;*/
-}
-
-.panel > .panel-content > .tab-view-container > .tab.selected {
-  /*this is broken because main is in the way*/
-  /*display: flex;*/
-}
-
 /* Notifications displayed over tabs */
 
 .panel .messages {
@@ -343,10 +323,9 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 /* Rooms */
 .rooms {
-  flex: 2;
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  position: relative;
+  flex-flow: column nowrap;
 }
 
 .rooms > h1 {
@@ -374,8 +353,6 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   flex: 1;
   border-radius: 3px 3px 0 0;
   padding: 6px 15px 8px;
-  /*margin: 1rem 0 .5rem;*/
-  /*padding: 1rem 15px;*/
 }
 
 .new-room-view > .context > .context-enabled {
@@ -425,16 +402,15 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 }
 
 .room-list {
-  /*max-height: 335px; /!* XXX better computation needed *!/*/
-  /*min-height: 7px;*/
-  flex: 2 2 0px;
+  /* flex grow full definition necessary */
+  flex: 1 1 0px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .room-list-empty {
   border-bottom-width: 0;
-  flex: 2;
+  flex: 1;
 }
 
 .room-list > .room-entry {
@@ -1028,8 +1004,6 @@ html[dir="rtl"] .settings-menu .dropdown-menu {
   align-content: stretch;
   align-items: center;
   font-size: 1rem;
-  /*background-color: #fbfbfb;*/
-  background-color: #999; /* dev test color*/
   color: #666666;
   padding: 10px 15px 6px;
   width: 100%;

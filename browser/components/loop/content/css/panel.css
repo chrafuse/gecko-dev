@@ -1025,13 +1025,12 @@ html[dir="rtl"] .settings-menu .dropdown-menu {
 
 .fte-get-started-content {
   flex: 1;
-  padding: 4.5rem 0 3.4rem;
+  padding: 7.5rem 0 0;
   display: flex;
   flex-direction: column;
 }
 
 .fte-title {
-  flex: 1;
   margin: 0 44px;
 }
 
@@ -1047,20 +1046,14 @@ html[dir="rtl"] .settings-menu .dropdown-menu {
 }
 
 .fte-get-started-content + .powered-by-wrapper {
-  flex: 0;
   width: 100%;
 }
 
 .fte-get-started-container {
-  height: 100%;
-  width: 100%;
-  min-height: 270px;
+  height: 410px;
+  width: 330px;
   display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-content: flex-start;
-  align-items: flex-start;
+  flex-flow: column nowrap;
   background: #fbfbfb;
 }
 

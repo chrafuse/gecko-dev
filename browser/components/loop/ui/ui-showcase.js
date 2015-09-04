@@ -733,7 +733,7 @@
             React.createElement(FramedExample, {cssClass: "fx-embedded-panel", 
                            dashed: true, 
                            height: 410, 
-                           summary: "Re-sign-in view", 
+                           summary: "First time experience view", 
                            width: 330}, 
               React.createElement("div", {className: "panel"}, 
                 React.createElement(PanelView, {client: mockClient, 

@@ -733,7 +733,7 @@
             <FramedExample cssClass="fx-embedded-panel"
                            dashed={true}
                            height={410}
-                           summary="Re-sign-in view"
+                           summary="First time experience view"
                            width={330}>
               <div className="panel">
                 <PanelView client={mockClient}

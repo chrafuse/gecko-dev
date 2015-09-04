@@ -2594,7 +2594,7 @@ Debugger::finalize(FreeOp* fop, JSObject* obj)
 
 const Class Debugger::jsclass = {
     "Debugger",
-    JSCLASS_HAS_PRIVATE | JSCLASS_IMPLEMENTS_BARRIERS |
+    JSCLASS_HAS_PRIVATE |
     JSCLASS_HAS_RESERVED_SLOTS(JSSLOT_DEBUG_COUNT),
     nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, Debugger::finalize,
@@ -4483,7 +4483,7 @@ DebuggerScript_trace(JSTracer* trc, JSObject* obj)
 
 const Class DebuggerScript_class = {
     "Script",
-    JSCLASS_HAS_PRIVATE | JSCLASS_IMPLEMENTS_BARRIERS |
+    JSCLASS_HAS_PRIVATE |
     JSCLASS_HAS_RESERVED_SLOTS(JSSLOT_DEBUGSCRIPT_COUNT),
     nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr,
@@ -5491,7 +5491,7 @@ DebuggerSource_trace(JSTracer* trc, JSObject* obj)
 
 const Class DebuggerSource_class = {
     "Source",
-    JSCLASS_HAS_PRIVATE | JSCLASS_IMPLEMENTS_BARRIERS |
+    JSCLASS_HAS_PRIVATE |
     JSCLASS_HAS_RESERVED_SLOTS(JSSLOT_DEBUGSOURCE_COUNT),
     nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr,
@@ -5909,7 +5909,7 @@ CheckThisFrame(JSContext* cx, const CallArgs& args, const char* fnname, bool che
     THIS_FRAME_THISOBJ(cx, argc, vp, fnname, args, thisobj);                   \
     AbstractFramePtr frame = AbstractFramePtr::FromRaw(thisobj->getPrivate()); \
     if (frame.isScriptFrameIterData()) {                                       \
-        ScriptFrameIter iter(cx, *(ScriptFrameIter::Data*)(frame.raw()));      \
+        ScriptFrameIter iter(*(ScriptFrameIter::Data*)(frame.raw()));          \
         frame = iter.abstractFramePtr();                                       \
     }
 
@@ -5919,7 +5919,7 @@ CheckThisFrame(JSContext* cx, const CallArgs& args, const char* fnname, bool che
     {                                                                          \
         AbstractFramePtr f = AbstractFramePtr::FromRaw(thisobj->getPrivate()); \
         if (f.isScriptFrameIterData()) {                                       \
-            maybeIter.emplace(cx, *(ScriptFrameIter::Data*)(f.raw()));         \
+            maybeIter.emplace(*(ScriptFrameIter::Data*)(f.raw()));             \
         } else {                                                               \
             maybeIter.emplace(cx, ScriptFrameIter::ALL_CONTEXTS,               \
                               ScriptFrameIter::GO_THROUGH_SAVED,               \
@@ -6617,7 +6617,7 @@ DebuggerObject_trace(JSTracer* trc, JSObject* obj)
 
 const Class DebuggerObject_class = {
     "Object",
-    JSCLASS_HAS_PRIVATE | JSCLASS_IMPLEMENTS_BARRIERS |
+    JSCLASS_HAS_PRIVATE |
     JSCLASS_HAS_RESERVED_SLOTS(JSSLOT_DEBUGOBJECT_COUNT),
     nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr,
@@ -7563,7 +7563,7 @@ DebuggerEnv_trace(JSTracer* trc, JSObject* obj)
 
 const Class DebuggerEnv_class = {
     "Environment",
-    JSCLASS_HAS_PRIVATE | JSCLASS_IMPLEMENTS_BARRIERS |
+    JSCLASS_HAS_PRIVATE |
     JSCLASS_HAS_RESERVED_SLOTS(JSSLOT_DEBUGENV_COUNT),
     nullptr, nullptr, nullptr, nullptr, nullptr,
     nullptr, nullptr, nullptr, nullptr,
@@ -8123,17 +8123,19 @@ JS::dbg::onPromiseSettled(JSContext* cx, HandleObject promise)
 }
 
 JS_PUBLIC_API(bool)
-JS::dbg::IsDebugger(const JSObject& obj)
+JS::dbg::IsDebugger(JSObject& obj)
 {
-    return js::GetObjectClass(&obj) == &Debugger::jsclass &&
-           js::Debugger::fromJSObject(&obj) != nullptr;
+    JSObject* unwrapped = CheckedUnwrap(&obj);
+    return unwrapped &&
+           js::GetObjectClass(unwrapped) == &Debugger::jsclass &&
+           js::Debugger::fromJSObject(unwrapped) != nullptr;
 }
 
 JS_PUBLIC_API(bool)
-JS::dbg::GetDebuggeeGlobals(JSContext* cx, const JSObject& dbgObj, AutoObjectVector& vector)
+JS::dbg::GetDebuggeeGlobals(JSContext* cx, JSObject& dbgObj, AutoObjectVector& vector)
 {
     MOZ_ASSERT(IsDebugger(dbgObj));
-    js::Debugger* dbg = js::Debugger::fromJSObject(&dbgObj);
+    js::Debugger* dbg = js::Debugger::fromJSObject(CheckedUnwrap(&dbgObj));
 
     if (!vector.reserve(vector.length() + dbg->debuggees.count())) {
         JS_ReportOutOfMemory(cx);

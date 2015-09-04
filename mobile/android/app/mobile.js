@@ -285,10 +285,6 @@ pref("privacy.trackingprotection.pbmode.enabled", true);
 pref("browser.search.suggest.enabled", false);
 pref("browser.search.suggest.prompted", false);
 
-// Tell the search service to load search plugins from the locale JAR
-pref("browser.search.loadFromJars", true);
-pref("browser.search.jarURIs", "chrome://browser/locale/searchplugins/");
-
 // tell the search service that we don't really expose the "current engine"
 pref("browser.search.noCurrentEngine", true);
 
@@ -931,5 +927,4 @@ pref("consoleservice.logcat", true);
 // Enable Cardboard VR on mobile, assuming VR at all is enabled
 pref("dom.vr.cardboard.enabled", true);
 
-// TODO: Disabled until bug 1190301 is fixed.
-pref("browser.tabs.showAudioPlayingIcon", false);
+pref("browser.tabs.showAudioPlayingIcon", true);

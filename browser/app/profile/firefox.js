@@ -356,10 +356,6 @@ pref("browser.helperApps.deleteTempFileOnExit", true);
 // search engines URL
 pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
 
-// Tell the search service to load search plugins from the locale JAR
-pref("browser.search.loadFromJars", true);
-pref("browser.search.jarURIs", "chrome://browser/locale/searchplugins/");
-
 // pointer to the default engine name
 pref("browser.search.defaultenginename",      "chrome://browser-region/locale/region.properties");
 
@@ -854,9 +850,6 @@ pref("browser.preferences.instantApply", false);
 #else
 pref("browser.preferences.instantApply", true);
 #endif
-
-// Toggles between the two Preferences implementations, pop-up window and in-content
-pref("browser.preferences.inContent", true);
 
 pref("browser.download.show_plugins_in_list", true);
 pref("browser.download.hide_plugins_without_extensions", true);
@@ -1426,6 +1419,9 @@ pref("devtools.debugger.ui.panes-visible-on-startup", false);
 pref("devtools.debugger.ui.variables-sorting-enabled", true);
 pref("devtools.debugger.ui.variables-only-enum-visible", false);
 pref("devtools.debugger.ui.variables-searchbox-visible", false);
+
+// Enable the Memory tools
+pref("devtools.memory.enabled", false);
 
 // Enable the Performance tools
 pref("devtools.performance.enabled", true);

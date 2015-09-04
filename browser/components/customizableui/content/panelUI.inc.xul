@@ -25,6 +25,7 @@
                 defaultlabel="&fxaSignIn.label;"
                 signedinTooltiptext="&fxaSignedIn.tooltip;"
                 errorlabel="&fxaSignInError.label;"
+                unverifiedlabel="&fxaUnverified.label;"
                 onclick="if (event.which == 1) gFxAccounts.onMenuPanelCommand();">
             <image id="PanelUI-fxa-avatar"/>
             <toolbarbutton id="PanelUI-fxa-label"
@@ -65,7 +66,7 @@
       </footer>
     </panelview>
 
-    <panelview id="PanelUI-history" flex="1">
+    <panelview id="PanelUI-history" flex="1" noautohide="true">
       <label value="&appMenuHistory.label;" class="panel-subview-header"/>
       <vbox class="panel-subview-body">
         <toolbarbutton id="appMenuViewHistorySidebar"

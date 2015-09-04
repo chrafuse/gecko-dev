@@ -290,6 +290,8 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 
 .no-conversations-message {
+  /* example of vertical aligning a container in an element
+  see: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -389,8 +391,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   height: 3rem;
   display: block;
   font-size: 1.2rem;
-  /*margin: 0 15px 1rem 15px;*/
-  margin: 7px 15px 0px;
+  margin: 7px 15px 0;
   padding: .5rem 1rem;
   border-radius: 4px;
 }
@@ -403,7 +404,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 .room-list {
   /* flex grow full definition necessary */
-  flex: 1 1 0px;
+  flex: 1 1 0;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -411,6 +412,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 .room-list-empty {
   border-bottom-width: 0;
   flex: 1;
+  transform-style: preserve-3d;
 }
 
 .room-list > .room-entry {
@@ -461,7 +463,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 @keyframes drop-and-fade-in {
   0%   {opacity: 0; top: -15px;}
   25%  {opacity: 0; top: -15px;}
-  100% {opacity: 1; top: 0px;}
+  100% {opacity: 1; top: 0;}
 }
 
 .room-list > .room-entry > h2 > button {
@@ -499,7 +501,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   background: transparent url(../shared/img/icons-16x16.svg#checkmark);
   animation: pulse .150s;
   animation-timing-function: ease-in-out;
-  top: 0px;
+  top: 0;
 }
 
 /* keep the various room-entry row pieces aligned with each other */
@@ -526,27 +528,27 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 /* Room entry context button (call button + chevron) */
 .room-entry-context-actions {
-   display: none;
-   border-radius: 30px;
-   background: #56b397;
-   vertical-align: top;
+  display: none;
+  border-radius: 30px;
+  background: #56b397;
+  vertical-align: top;
 }
 
 .room-entry:hover .room-entry-context-actions {
-   display: inline-block;
+  display: inline-block;
 }
 
 .room-entry:hover .room-entry-context-actions:hover {
-   background: #50e3c2;
+  background: #50e3c2;
 }
 
 /* Room entry call button */
 .room-entry-call-btn {
-   border-top-left-radius: 30px;
-   border-bottom-left-radius: 30px;
-   background-color: transparent;
-   background-image: url("../shared/img/icons-14x14.svg#video-white");
-   background-position: right center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: transparent;
+  background-image: url("../shared/img/icons-14x14.svg#video-white");
+  background-position: right center;
 }
 
 html[dir="rtl"] .room-entry-call-btn {
@@ -555,22 +557,22 @@ html[dir="rtl"] .room-entry-call-btn {
 
 /* Room entry context menu */
 .room-entry-context-menu-chevron {
-   display: inline-block;
-   border-top-right-radius: 30px;
-   border-bottom-right-radius: 30px;
-   background-image: url("../shared/img/icons-10x10.svg#dropdown-white");
-   background-position: center;
-   cursor: pointer;
+  display: inline-block;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-image: url("../shared/img/icons-10x10.svg#dropdown-white");
+  background-position: center;
+  cursor: pointer;
 }
 
 /* Common styles for chevron and call button. */
 .room-entry-context-menu-chevron,
 .room-entry-call-btn {
-   width: 30px;
-   height: 24px;
-   background-size: 12px;
-   background-repeat: no-repeat;
-   vertical-align: middle;
+  width: 30px;
+  height: 24px;
+  background-size: 12px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
 }
 
 html[dir="rtl"] .room-entry-context-actions > .dropdown-menu {
@@ -579,9 +581,9 @@ html[dir="rtl"] .room-entry-context-actions > .dropdown-menu {
 }
 
 .room-entry-context-actions > .dropdown-menu {
-   right: 45px;
-   bottom: auto;
-   left: auto;
+  right: 45px;
+  bottom: auto;
+  left: auto;
 }
 
 /* Keep ".room-list > .room-entry > h2" in sync with these. */

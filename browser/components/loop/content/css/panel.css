@@ -1018,8 +1018,6 @@ html[dir="rtl"] .settings-menu .dropdown-menu {
   align-content: stretch;
   align-items: center;
   font-size: 1rem;
-  /*background-color: #fbfbfb;*/
-  background-color: #999; /* dev test color*/
   color: #666666;
   padding: 10px 15px 6px;
   width: 100%;

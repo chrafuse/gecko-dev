@@ -385,6 +385,7 @@ html[dir="rtl"] .contact > .dropdown-menu {
 }
 
 .contact-form .form-content-container {
+  /* flex is needed to fill and place the buttons above the footer */
   flex: 1;
   padding-top: 4px; /* Based on spacing in Mockup
                     replaced margin-top

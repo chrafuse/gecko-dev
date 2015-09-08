@@ -87,7 +87,6 @@ body {
   flex: 1;
   display: flex;
   flex-flow: column nowrap;
-  height: 368px;
   overflow: hidden;
 }
 

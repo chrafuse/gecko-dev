@@ -283,7 +283,8 @@
   var roomStore = new loop.store.RoomStore(dispatcher, {
     mozLoop: navigator.mozLoop,
     activeRoomStore: makeActiveRoomStore({
-      roomState: ROOM_STATES.HAS_PARTICIPANTS
+      roomState: ROOM_STATES.HAS_PARTICIPANTS,
+      pendingInitialRetrieval: false
     })
   });
 
@@ -456,17 +457,20 @@
     mozLoop: mockMozLoopNoRooms,
     activeRoomStore: new loop.store.ActiveRoomStore(new loop.Dispatcher(), {
       mozLoop: mockMozLoopNoRooms,
-      sdkDriver: mockSDK,
-      pendingInitialRetrieval: false
+      sdkDriver: mockSDK
     })
+  });
+
+  /* xxx this is asynchronous - if start seeing things pending then this is the culprit */
+  roomStoreNoRooms.setStoreState({
+    pendingInitialRetrieval: false
   });
 
   var roomStoreNoRoomsPending = new loop.store.RoomStore(new loop.Dispatcher(), {
     mozLoop: mockMozLoopNoRooms,
     activeRoomStore: new loop.store.ActiveRoomStore(new loop.Dispatcher(), {
       mozLoop: mockMozLoopNoRooms,
-      sdkDriver: mockSDK,
-      pendingInitialRetrieval: true
+      sdkDriver: mockSDK
     })
   });
 

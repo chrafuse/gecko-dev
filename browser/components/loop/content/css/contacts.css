@@ -31,11 +31,6 @@ html {
   overflow-y: auto;
 }
 
-/* Don't show the Gravatar if we're showing a contacts list. NOT WORKING hide in code*/
-.contact-search-list-empty ~ .contacts-gravatar-promo {
-  display: block;
-}
-
 /* Don't show the empty contacts image if we're showing gravatar promo. */
 .contacts-gravatar-promo ~ .contact-list-empty {
   background-image: none;

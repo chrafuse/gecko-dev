@@ -27,8 +27,6 @@ body {
   width: 330px;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-content: stretch;
   align-items: flex-start;
 }
 

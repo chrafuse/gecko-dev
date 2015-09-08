@@ -974,10 +974,14 @@
                            summary: "Contact Form - Edit", 
                            width: 330}, 
               React.createElement("div", {className: "panel"}, 
-                React.createElement(ContactDetailsForm, {contactFormData: fakeManyContacts[1], 
-                                    mode: "edit", 
-                                    mozLoop: mockMozLoopLoggedIn, 
-                                    switchToInitialView: noop})
+                React.createElement(PanelView, {client: mockClient, 
+                           dispatcher: dispatcher, 
+                           initialSelectedTabComponent: "contactEdit", 
+                           mozLoop: mockMozLoopLoggedIn, 
+                           notifications: notifications, 
+                           roomStore: roomStore, 
+                           selectedTab: "contacts", 
+                           userProfile: {email: "test@example.com"}})
               )
             )
           ), 

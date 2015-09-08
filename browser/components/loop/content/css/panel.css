@@ -1026,6 +1026,7 @@ html[dir="rtl"] .settings-menu .dropdown-menu {
 /* First time use */
 
 .fte-get-started-content {
+  /* Manual vertical centering */
   flex: 1;
   padding: 7.5rem 0 0;
   display: flex;

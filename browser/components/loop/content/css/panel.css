@@ -197,6 +197,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 }
 
 .tab-view li:first-child:nth-last-child(2) ~ li {
+  /* hide the tab-slider when there is only one tab shown */
   display: none;
 }
 

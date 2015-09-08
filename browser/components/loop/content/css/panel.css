@@ -316,6 +316,8 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 .room-list-loading {
   margin: 5rem 15px;
   text-align: center;
+  /* makes sure that buttons are anchored above footer */
+  flex: 1;
 }
 
 .room-list-loading > img {
@@ -407,6 +409,8 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   flex: 1 1 0;
   overflow-y: auto;
   overflow-x: hidden;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .room-list-empty {

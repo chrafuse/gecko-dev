@@ -456,7 +456,17 @@
     mozLoop: mockMozLoopNoRooms,
     activeRoomStore: new loop.store.ActiveRoomStore(new loop.Dispatcher(), {
       mozLoop: mockMozLoopNoRooms,
-      sdkDriver: mockSDK
+      sdkDriver: mockSDK,
+      pendingInitialRetrieval: false
+    })
+  });
+
+  var roomStoreNoRoomsPending = new loop.store.RoomStore(new loop.Dispatcher(), {
+    mozLoop: mockMozLoopNoRooms,
+    activeRoomStore: new loop.store.ActiveRoomStore(new loop.Dispatcher(), {
+      mozLoop: mockMozLoopNoRooms,
+      sdkDriver: mockSDK,
+      pendingInitialRetrieval: true
     })
   });
 
@@ -811,6 +821,21 @@
                            mozLoop: mockMozLoopNoRoomsNoContext, 
                            notifications: notifications, 
                            roomStore: roomStoreNoRooms, 
+                           selectedTab: "rooms"})
+              )
+            ), 
+
+            React.createElement(FramedExample, {cssClass: "fx-embedded-panel", 
+                           dashed: true, 
+                           height: 410, 
+                           summary: "Room list tab (loading view)", 
+                           width: 330}, 
+              React.createElement("div", {className: "panel"}, 
+                React.createElement(PanelView, {client: mockClient, 
+                           dispatcher: dispatcher, 
+                           mozLoop: mockMozLoopNoRoomsNoContext, 
+                           notifications: notifications, 
+                           roomStore: roomStoreNoRoomsPending, 
                            selectedTab: "rooms"})
               )
             ), 

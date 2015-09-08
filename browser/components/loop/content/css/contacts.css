@@ -60,7 +60,6 @@ html {
 
 .contact-list-empty {
   background-image: url("../shared/img/empty_contacts.svg");
-  flex: 1;
 }
 
 .contact-import-spinner {

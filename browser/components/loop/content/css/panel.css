@@ -432,8 +432,6 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
   font-size: 1.3rem;
   line-height: 2.4rem;
   color: #000;
-  /* See .room-entry-context-item for the margin/size reductions. */
-  /*width: calc(100% - 1rem - 16px);*/
   /* See .room-entry-context-item for the margin/size reductions.
     * An extra 40px to make space for the call button and chevron. */
   width: calc(100% - 1rem - 56px);

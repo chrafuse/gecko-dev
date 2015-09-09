@@ -402,7 +402,9 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 }
 
 .room-list {
-  /* flex grow full definition necessary */
+  /* xxx  not sure why flex needs the 3 value setting
+    but setting flex to just 1, the whole tab including the new room is scrollable.
+    seems to not like the 0% of the default setting - may be FF bug */
   flex: 1 1 0;
   overflow-y: auto;
   overflow-x: hidden;

@@ -288,7 +288,7 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 
 .no-conversations-message {
   /* example of vertical aligning a container in an element
-  see: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
+    see: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -415,6 +415,9 @@ html[dir="rtl"] .tab-view li:nth-child(2).selected ~ .slide-bar {
 .room-list-empty {
   border-bottom-width: 0;
   flex: 1;
+  /* the child no-conversations-message is vertical aligned inside this container
+    see: http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+    stops blurring from decimal pixels being rendered - pixel rounding */
   transform-style: preserve-3d;
 }
 

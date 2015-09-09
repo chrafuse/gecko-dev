@@ -283,8 +283,7 @@
   var roomStore = new loop.store.RoomStore(dispatcher, {
     mozLoop: navigator.mozLoop,
     activeRoomStore: makeActiveRoomStore({
-      roomState: ROOM_STATES.HAS_PARTICIPANTS,
-      pendingInitialRetrieval: false
+      roomState: ROOM_STATES.HAS_PARTICIPANTS
     })
   });
 
